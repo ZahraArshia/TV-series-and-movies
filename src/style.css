@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Courier+Prime:wght@400;700&family=Lato:wght@100;300;400;900&family=Open+Sans:wght@300;400;800&family=Source+Code+Pro:wght@300;400;600;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  font-family: 'Open sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-image: linear-gradient(
+    rgba(26, 162, 119, 0.892),
+    rgba(50, 135, 108, 0.892),
+    rgb(0, 0, 0)
+  );
+  background-repeat: no-repeat;
+}
+
+.nav-logo {
+  width: 100px;
+  height: auto;
+  padding: 5px;
+  margin-top: 20px;
+  background-image: url(./images/logo.png);
+  background-size: 84px 27px;
+  background-repeat: no-repeat;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
+}
+
+nav ul > li {
+  text-align: center;
+  padding: 18px;
+  text-decoration: none;
+}
+
+footer p a {
+  text-decoration: none;
+  color: rgba(186, 186, 60, 0.92);
+}
+
+nav ul li a {
+  color: rgba(186, 186, 60, 0.92);
+  font-size: 1.5em;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.info {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.info li {
+  width: 400px;
+  padding: 5px 5px;
+  font-size: 1.2em;
+  font-weight: normal;
+}
+
+nav ul ul > li:hover {
+  background-color: #111;
+}
+
+h1 {
+  margin: 0 auto;
+  width: 400px;
+  font-size: 2em;
+  padding-top: 15px;
+  color: rgba(186, 186, 60, 0.92);
+}
+
+.movies {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 10% 5%;
+  justify-content: center;
+  margin: 1% 5%;
+}
+
+.card {
+  margin: 15px 10px;
+}
+
+h3 {
+  padding: 5px 5px;
+}
+
+.card h3 {
+  width: 220px;
+  overflow: hidden;
+}
+
+.btn {
+  padding: 10px 15px;
+  background-color: slateblue;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 1em;
+  transition-duration: 1s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: darkred;
+}
+
+.likes {
+  padding: 5px 5px;
+  font-size: 1.1em;
+  color: deeppink;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  font-family: poppins, sans-serif;
+  color: #fff;
+  font-size: 20px;
+  background: black;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
