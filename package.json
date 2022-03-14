@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "webpack serve --open --mode=development",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "watch": "webpack --watch",
     "start": "webpack serve --open",
     "build": "webpack"
@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/ZahraArshia/TV-series-and-movies#readme",
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.16.8",
     "css-loader": "^6.7.1",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^27.5.1",
