@@ -6,7 +6,7 @@ JavaScript capstone project - API-based webapp
 
 ## Screenshoots
 
-Coming soon
+![TV MAZE](./src/images/tv.png)
 
 ## Built With
 
