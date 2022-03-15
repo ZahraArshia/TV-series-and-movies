@@ -10,8 +10,8 @@
 *.userosscache
 *.sln.docstates
 
-# User-specific files (MonoDevelop/Xamarin Studio)
-*.userprefs
+# ignore dist folder
+dist/
 
 # Mono auto generated files
 mono_crash.*
