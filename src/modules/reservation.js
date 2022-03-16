@@ -61,6 +61,8 @@ const reservationCounter = (movieID) => {
   });
 };
 
+const finalCounter = (data) => (typeof (data) === 'object' ? data.length : 'invalid');
+
 const Reservationspopup = (movieID) => {
   getMovieData(movieID).then((result) => {
     popUpBox.innerHTML = `
@@ -121,4 +123,4 @@ const Reservationspopup = (movieID) => {
   });
 };
 
-export default Reservationspopup;
+export { Reservationspopup, finalCounter };

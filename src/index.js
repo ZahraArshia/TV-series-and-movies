@@ -1,7 +1,7 @@
 import './style.css';
 import { getMovies, countMovies } from './modules/get-api.js';
 import { getLikes, addLike } from './modules/interact.js';
-import Reservationspopup from './modules/reservation.js';
+import { Reservationspopup } from './modules/reservation.js';
 
 const displayMovie = (movie, like = {}) => `<div class="card">
                     <div class="card-div">
@@ -38,8 +38,7 @@ const moviesComponent = async () => {
       const movieId = item.getAttribute('data-id');
       if (item.style.color !== 'pink') {
         item.style.color = 'pink';
-        item.firstElementChild.innerHTML =
-          Number(item.firstElementChild.innerHTML) + 1;
+        item.firstElementChild.innerHTML = Number(item.firstElementChild.innerHTML) + 1;
         addLike(movieId);
       }
     });
