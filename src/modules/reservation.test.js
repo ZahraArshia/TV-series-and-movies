@@ -2,8 +2,9 @@
  * @jest-environment jsdom
  */
 
- import { finalCounter } from './reservation';
- describe('reservation check', () => {
+import { finalCounter } from './reservation.js';
+
+describe('reservation check', () => {
   test('number of reservations posted for an item ', () => {
     const raws = [
       {

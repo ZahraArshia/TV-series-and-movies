@@ -108,7 +108,7 @@ h3 {
 .card-img {
   width: 100%;
   object-fit: contain !important;
-  box-shadow: 0px 0 19px 6px rgb(14, 10, 10);
+  box-shadow: 0 0 19px 6px rgb(14, 10, 10);
 }
 
 .card h3 {
@@ -173,7 +173,6 @@ footer {
   color: #fff;
   font-size: 20px;
   background: rgba(0, 0, 0, 0.623);
-  text-align: center;
   padding: 1rem;
   margin-top: 2rem;
 }
