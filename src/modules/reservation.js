@@ -48,6 +48,19 @@ const getMovieData = async (movieID) => {
   return response;
 };
 
+const counter = async (movieID) => {
+  const response = await getReservationsData(movieID)
+    .then((result) => (!result.error ? result.length : 0))
+    .catch(() => 0);
+  return response;
+};
+
+const reservationCounter = (movieID) => {
+  counter(movieID).then((count) => {
+    popUpBox.querySelector('.reservationCounter').innerHTML = count;
+  });
+};
+
 const Reservationspopup = (movieID) => {
   getMovieData(movieID).then((result) => {
     popUpBox.innerHTML = `
@@ -81,6 +94,7 @@ const Reservationspopup = (movieID) => {
     </div>
     </div>
     `;
+    reservationCounter(movieID);
     popUpBox.style.display = 'flex';
     document.querySelector('.closeReservation').addEventListener('click', () => {
       popUpBox.style.display = 'none';
@@ -100,7 +114,7 @@ const Reservationspopup = (movieID) => {
         date_end: EndDate,
       }).then(() => {
         reservationsDisplay(movieID);
-        // counter++
+        reservationCounter(movieID);
         form.reset();
       });
     });
