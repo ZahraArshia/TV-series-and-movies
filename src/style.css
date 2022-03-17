@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Courier+Prime:wght@400;700&family=Lato:wght@100;300;400;900&family=Open+Sans:wght@300;400;800&family=Source+Code+Pro:wght@300;400;600;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -8,44 +8,43 @@
 }
 
 body {
-  height: 100%;
   font-family: 'Open sans', sans-serif;
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
   background-image: url(./images/pexels-nathan-engel-436413.jpg);
   background-repeat: repeat;
 }
 
 .nav-logo {
-  width: 100px;
-  height: 100px;
-  padding: 5px;
-  margin-top: 20px;
-  background-image: url(./images/logo.png);
-  background-size: 84px 27px;
+  display: flex;
+  width: 150px;
+  border: 10px solid transparent;
+  background-image: url(./images/netflix_official_logo_icon_168085.png);
+  background-size: 125px 40px;
   background-repeat: no-repeat;
+  margin: 0 auto;
 }
 
 nav ul {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   list-style-type: none;
+  flex-wrap: wrap;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-image: url(./images/pexels-david-bartus-714926.jpg);
-  background-size: 100%;
+  background-image: url(./images/Avengers.jpeg);
+  background-size: 100% 25rem;
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 .main h1 {
-  font-size: 54px;
-  margin: 0 auto;
-  width: 1200px;
+  font-size: 32px;
   padding-top: 15px;
   color: rgb(158, 33, 33);
   font-family: 'Bowlby One', cursive;
+  text-align: center;
 }
 
 nav ul > li {
@@ -60,10 +59,19 @@ footer p a {
 }
 
 nav ul li a {
-  color: rgb(255, 255, 255);
-  font-size: 1.5em;
+  color: rgb(255, 225, 0);
+  font-size: 2em;
   font-weight: 900;
   text-decoration: none;
+  letter-spacing: 0.4rem;
+  box-shadow: 2px 2px 2px 0 rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+nav ul li a:hover {
+  box-shadow: 2px 2px 2px 0 red;
+  color: red;
+  letter-spacing: 1rem;
 }
 
 .info {
@@ -94,7 +102,8 @@ nav ul ul > li:hover {
 
 .card {
   margin: 15px 10px;
-  width: 25rem;
+  width: 18rem;
+  height: 35rem;
   display: flex;
   flex-direction: column;
   padding: 0.5rem;
@@ -182,7 +191,7 @@ footer {
   display: none;
   flex-direction: column;
   padding: 2%;
-  margin: 2%;
+  margin: 1% 4% 1% 4%;
   border: solid 1px rgba(0, 0, 0, 0.623);
   backdrop-filter: blur(20px);
   position: fixed;
@@ -195,10 +204,31 @@ footer {
   color: white;
 }
 
+.popupTitle {
+  font-family: 'Bowlby One', cursive;
+  font-size: 35px;
+}
+
+.closeReservation img {
+  width: 4%;
+  cursor: pointer;
+}
 .reservation-skeleton {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+}
+
+.reservation-skeleton button {
+  background-color: transparent;
+  border: 2px solid rgb(167, 9, 9);
+  color: rgb(167, 9, 9);
+}
+
+.reservation-skeleton button:hover {
+  background-color: white;
+  border: none;
+  color: rgb(167, 9, 9);
 }
 
 .reservation-film-info {
@@ -206,15 +236,61 @@ footer {
   flex-direction: column;
 }
 
+.reservation-film-info ul {
+  list-style: none;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.reservationsTitle {
+  font-size: 24px;
+}
+
 .reservation-info {
   display: flex;
   flex-direction: column;
   margin: 5%;
+  width: 30%;
+}
+
+.reservation-info input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-bottom: 1px solid white;
+  font-family: 'Open sans', sans-serif;
+  background-color: transparent;
+  outline: none;
+  color: white;
+}
+
+.reservation-info input::placeholder {
+  color: white;
+}
+
+.reservation-info button {
+  width: 100%;
+  padding: 10px;
+  background-color: transparent;
+  border: 2px solid rgb(167, 9, 9);
+  color: rgb(167, 9, 9);
+  font-family: 'Open sans', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.reservation-info button:hover {
+  background-color: white;
+  border: none;
 }
 
 .reservationImg {
-  margin: 0 auto;
-  width: 20rem;
+  width: 100%;
+  height: 30rem;
+  margin-bottom: 10px;
+  border: 2px solid rgb(167, 9, 9);
 }
 
 /* end of reservation style */

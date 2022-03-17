@@ -1,6 +1,9 @@
-const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
+/* eslint-disable no-confusing-arrow */
+const fetch = (...args) =>
+  import('node-fetch').then(({ default: fetch }) => fetch(...args));
 const movieURL = 'https://api.tvmaze.com/shows';
-const reservationsURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/3x4brqQTuutEhv5burqz/reservations/';
+const reservationsURL =
+  'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/3x4brqQTuutEhv5burqz/reservations/';
 // id: 3x4brqQTuutEhv5burqz
 const popUpBox = document.getElementById('popUpBox');
 
@@ -11,16 +14,19 @@ const postReservationsData = async (raw) => {
       'Content-Type': 'application/json; charset= UTF-8',
     },
     body: JSON.stringify(raw),
-  }).then((res) => res.text())
-    .then((data) => (data.error
-      ? { error: true, info: data }
-      : { error: false, info: data }))
+  })
+    .then((res) => res.text())
+    .then((data) =>
+      data.error ? { error: true, info: data } : { error: false, info: data }
+    )
     .catch((error) => ({ error: true, info: error }));
   return response;
 };
 
 const getReservationsData = async (movieId) => {
-  const response = await fetch(`${reservationsURL}?item_id=${movieId}`).catch((err) => err);
+  const response = await fetch(`${reservationsURL}?item_id=${movieId}`).catch(
+    (err) => err
+  );
   return response.json();
 };
 
@@ -29,10 +35,13 @@ const reservationsDisplay = (movieId) => {
   getReservationsData(movieId).then((data) => {
     if (!data.error) {
       data.forEach((comment) => {
-        popUpBox.querySelector('.reservationTable').innerHTML += `<li class="reservation-li"> ${comment.date_start} - ${comment.date_end} by ${comment.username}</li>`;
+        popUpBox.querySelector(
+          '.reservationTable'
+        ).innerHTML += `<li class="reservation-li"> ${comment.date_start} - ${comment.date_end} by ${comment.username}</li>`;
       });
     } else {
-      popUpBox.querySelector('.reservationTable').innerHTML = 'no reservation yet!';
+      popUpBox.querySelector('.reservationTable').innerHTML =
+        'no reservation yet!';
     }
   });
 };
@@ -61,7 +70,8 @@ const reservationCounter = (movieID) => {
   });
 };
 
-const finalCounter = (data) => (typeof (data) === 'object' ? data.length : 'invalid');
+const finalCounter = (data) =>
+  typeof data === 'object' ? data.length : 'invalid';
 
 const Reservationspopup = (movieID) => {
   getMovieData(movieID).then((result) => {
@@ -71,8 +81,7 @@ const Reservationspopup = (movieID) => {
     <div class="reservation-film-info">
     <h2 class="popupTitle">${result.name}</h2>
     <img src="${result.image.medium}" class="reservationImg">
-    </div>
-    <div>
+    <div >
     <ul>
       <li>Premiered: ${result.premiered}</li>
       <li>Ended: ${result.ended}</li>
@@ -80,6 +89,9 @@ const Reservationspopup = (movieID) => {
       <li>Type: ${result.type}</li>
     </ul>
     </div>
+    <button class="btn" type="submit">More details</button>
+    </div>
+   
     <div class="reservation-info">
     <h3 class="reservationsTitle"> Reservations (<span class="reservationCounter">0</span>)</h3>
     <ul class="reservationTable"></ul>
@@ -98,10 +110,12 @@ const Reservationspopup = (movieID) => {
     `;
     reservationCounter(movieID);
     popUpBox.style.display = 'flex';
-    document.querySelector('.closeReservation').addEventListener('click', () => {
-      popUpBox.style.display = 'none';
-      popUpBox.innerHTML = '';
-    });
+    document
+      .querySelector('.closeReservation')
+      .addEventListener('click', () => {
+        popUpBox.style.display = 'none';
+        popUpBox.innerHTML = '';
+      });
     reservationsDisplay(movieID);
     const form = popUpBox.querySelector('.reservationForm');
     form.addEventListener('submit', (event) => {
