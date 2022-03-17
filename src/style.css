@@ -1,5 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Courier+Prime:wght@400;700&family=Lato:wght@100;300;400;900&family=Open+Sans:wght@300;400;800&family=Source+Code+Pro:wght@300;400;600;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Courier+Prime:wght@400;700&family=Lato:wght@100;300;400;900&family=Open+Sans:wght@300;400;800&family=Source+Code+Pro:wght@300;400;600;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -8,43 +10,47 @@
 
 body {
   height: 100%;
-  font-family: 'Open sans', sans-serif;
+  font-family: "Open sans", sans-serif;
   margin: 0;
   padding: 0;
+
   box-sizing: border-box;
   background-image: url(./images/pexels-nathan-engel-436413.jpg);
   background-repeat: repeat;
 }
 
 .nav-logo {
-  width: 100px;
-  height: 100px;
-  padding: 5px;
-  margin-top: 20px;
-  background-image: url(./images/logo.png);
-  background-size: 84px 27px;
+  display: flex;
+  width: 150px;
+  border: 10px solid transparent;
+  background-image: url(./images/netflix_official_logo_icon_168085.png);
+  background-size: 125px 40px;
   background-repeat: no-repeat;
+  margin: 0 auto;
 }
 
 nav ul {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   list-style-type: none;
+  flex-wrap: wrap;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-image: url(./images/pexels-david-bartus-714926.jpg);
-  background-size: 100%;
+  background-image: url(./images/Avengers.jpeg);
+  background-size: 100% 25rem;
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 .main h1 {
-  font-size: 54px;
-  margin: 0 auto;
-  width: 1200px;
+  font-size: 32px;
   padding-top: 15px;
   color: rgb(158, 33, 33);
-  font-family: 'Bowlby One', cursive;
+
+  font-family: "Bowlby One", cursive;
+  text-align: center;
 }
 
 nav ul > li {
@@ -59,10 +65,19 @@ footer p a {
 }
 
 nav ul li a {
-  color: rgb(255, 255, 255);
-  font-size: 1.5em;
+  color: rgb(255, 225, 0);
+  font-size: 2em;
   font-weight: 900;
   text-decoration: none;
+  letter-spacing: 0.4rem;
+  box-shadow: 2px 2px 2px 0 rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+nav ul li a:hover {
+  box-shadow: 2px 2px 2px 0 red;
+  color: red;
+  letter-spacing: 1rem;
 }
 
 .info {
@@ -93,7 +108,8 @@ nav ul ul > li:hover {
 
 .card {
   margin: 15px 10px;
-  width: 25rem;
+  width: 18rem;
+  height: 35rem;
   display: flex;
   flex-direction: column;
   padding: 0.5rem;
@@ -104,10 +120,10 @@ h3 {
   padding: 5px 5px;
 }
 
-img {
+.card-img {
   width: 100%;
   object-fit: contain !important;
-  box-shadow: 0px 0 19px 6px rgb(14, 10, 10);
+  box-shadow: 0 0 19px 6px rgb(14, 10, 10);
 }
 
 .card h3 {
@@ -132,23 +148,39 @@ img {
   margin: 0 auto;
 }
 
+.btnComment {
+  padding: 8px 15px;
+  background-color: rgb(88, 88, 88);
+  border: none;
+  color: rgb(242, 246, 198);
+  transition-duration: 1s;
+  /* cursor: pointer; */
+  margin-top: 10px;
+  font-size: 14px;
+  font-family: "open sans", sans-serif;
+  font-weight: 700;
+}
+
+.btnComment:hover {
+  background-color: darkred;
+}
+
 .btn {
   padding: 8px 15px;
   background-color: rgb(88, 88, 88);
   border: none;
   color: rgb(242, 246, 198);
   transition-duration: 1s;
-  cursor: pointer;
+  /*  cursor: pointer; */
   margin-top: 10px;
   font-size: 14px;
-  font-family: 'open sans', sans-serif;
+  font-family: "open sans", sans-serif;
   font-weight: 700;
 }
 
 .btn:hover {
   background-color: darkred;
 }
-
 .likes {
   padding: 5px 5px;
   font-size: 1em;
@@ -168,11 +200,234 @@ footer {
   align-items: center;
   width: 100%;
   height: 80px;
-  font-family: 'open sans', sans-serif;
+  font-family: "open sans", sans-serif;
   color: #fff;
   font-size: 20px;
   background: rgba(0, 0, 0, 0.623);
-  text-align: center;
   padding: 1rem;
   margin-top: 2rem;
+}
+
+/* reservation style */
+.popUpBox {
+  display: none;
+  flex-direction: column;
+  padding: 2%;
+  margin: 1% 4% 1% 4%;
+  border: solid 1px rgba(0, 0, 0, 0.623);
+  backdrop-filter: blur(20px);
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  border-radius: 16px;
+  color: white;
+}
+
+.popupTitle {
+  font-family: "Bowlby One", cursive;
+  font-size: 35px;
+}
+
+.closeReservation img {
+  width: 4%;
+  cursor: pointer;
+}
+.reservation-skeleton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.reservation-skeleton button {
+  background-color: transparent;
+  border: 2px solid rgb(167, 9, 9);
+  color: rgb(167, 9, 9);
+}
+
+.reservation-skeleton button:hover {
+  background-color: white;
+  border: none;
+  color: rgb(167, 9, 9);
+}
+
+.reservation-film-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.reservation-film-info ul {
+  list-style: none;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.reservationsTitle {
+  font-size: 24px;
+}
+
+.reservation-info {
+  display: flex;
+  flex-direction: column;
+  margin: 5%;
+  width: 30%;
+}
+
+.reservation-info input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-bottom: 1px solid white;
+  font-family: "Open sans", sans-serif;
+  background-color: transparent;
+  outline: none;
+  color: white;
+}
+
+.reservation-info input::placeholder {
+  color: white;
+}
+
+.reservation-info button {
+  width: 100%;
+  padding: 10px;
+  background-color: transparent;
+  border: 2px solid rgb(167, 9, 9);
+  color: rgb(167, 9, 9);
+  font-family: "Open sans", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.reservation-info button:hover {
+  background-color: white;
+  border: none;
+}
+
+.reservationImg {
+  width: 100%;
+  height: 30rem;
+  margin-bottom: 10px;
+  border: 2px solid rgb(167, 9, 9);
+}
+
+/* end of reservation style */
+/*  popup window*/
+.pop-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  box-sizing: border-box;
+  background-image: url(./images/pexels-nathan-engel-436413.jpg);
+  background-repeat: repeat;
+  display: none;
+  overflow: scroll;
+}
+
+.comments-pop {
+  border-color: var(--secondary-color);
+  width: 70%;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 2rem;
+  z-index: 1;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow-y: visible;
+}
+
+.img-div {
+  width: 55%;
+  height: 200px;
+  margin: 2rem auto;
+  display: flex;
+}
+
+.img-div img {
+  width: 70%;
+  margin: 2rem auto 0 auto;
+}
+
+.fa-xmark {
+  font-size: 30px;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  margin-top: 5px;
+}
+
+.comments-pop h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: 100;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+.specs {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 15vw);
+  grid-template-rows: repeat(2, 45px);
+  text-align: start;
+  font-size: 24px;
+  line-height: 9px;
+  word-break: break-all;
+  margin: 1rem 25% 0 25%;
+}
+
+.specs span {
+  font-size: 16px;
+}
+
+.show-comments {
+  text-align: center;
+  position: relative;
+}
+
+.show-comments ul {
+  list-style: none;
+}
+
+.add-comments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.add-comments form {
+  margin: 1rem 2rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+form input {
+  margin-bottom: 1rem;
+  padding: 10px 2rem;
+}
+
+form textarea {
+  margin-bottom: 1rem;
+  padding: 2rem;
+}
+
+form button {
+  width: 150px;
+  height: 40px;
+  margin: 0 auto;
+}
+
+.hide {
+  display: none;
 }
