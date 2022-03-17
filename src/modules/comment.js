@@ -1,7 +1,7 @@
 /* eslint-disable no-confusing-arrow */
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 const movieURL = 'https://api.tvmaze.com/shows';
-const reservationsURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/3x4brqQTuutEhv5burqz/reservations/';
+const reservationsURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/3x4brqQTuutEhv5burqz/comments/';
 // id: 3x4brqQTuutEhv5burqz
 const popUpBox = document.getElementById('popUpBox');
 
@@ -30,13 +30,13 @@ const reservationsDisplay = (movieId) => {
   popUpBox.querySelector('.reservationTable').innerHTML = '';
   getReservationsData(movieId).then((data) => {
     if (!data.error) {
-      data.forEach((reserve) => {
+      data.forEach((comment) => {
         popUpBox.querySelector(
           '.reservationTable',
-        ).innerHTML += `<p> ${reserve.date_start} - ${reserve.date_end} by ${reserve.username}</p>`;
+        ).innerHTML += `<p>${comment.creation_date} | ${comment.username} : ${comment.comment}</p>`;
       });
     } else {
-      popUpBox.querySelector('.reservationTable').innerHTML = 'no reservation yet!';
+      popUpBox.querySelector('.reservationTable').innerHTML = 'no comment yet!';
     }
   });
 };
@@ -65,9 +65,9 @@ const reservationCounter = (movieID) => {
   });
 };
 
-const finalCounter = (data) => typeof data === 'object' ? data.length : 'invalid';
+const CommentCounter = (data) => typeof data === 'object' ? data.length : 'invalid';
 
-const Reservationspopup = (movieID) => {
+const Commentspopup = (movieID) => {
   getMovieData(movieID).then((result) => {
     popUpBox.innerHTML = `
     <span class="closeReservation"><img src="https://img.icons8.com/doodle/48/000000/delete-sign.png"/></span>
@@ -81,15 +81,13 @@ const Reservationspopup = (movieID) => {
     <button class="moreDetailsButton btn" type="submit">More details</button>
     </div>
     <div class="reservation-info">
-    <h3 class="reservationsTitle">Reservations(<span class="reservationCounter">0</span>)</h3>
+    <h3 class="reservationsTitle">Comments(<span class="reservationCounter">0</span>)</h3>
     <div class="reservationTable"></div>
     <form class="reservationForm">
-      <h3>Add a reservation</h3>
+      <h3>Add a comment</h3>
       <input id="username" type="text" name="username" placeholder="Your name" required>
       <br>
-      <input id="StartDate" type="date" name="StartDate" placeholder="Start date" required>
-      <br>
-      <input id="EndDate" type="date" name="EndDate" placeholder="End date" required>
+      <textarea id="commentArea" placeholder="Your insights" name="commentArea" required minlength="1"></textarea>
       <br>
       <button class="reservationSubmit" type="submit">Submit</button>
     </form>
@@ -120,13 +118,11 @@ const Reservationspopup = (movieID) => {
     form.addEventListener('submit', (event) => {
       event.preventDefault();
       const user = form.elements.username.value;
-      const StartDate = form.elements.StartDate.value;
-      const EndDate = form.elements.EndDate.value;
+      const commentArea = form.elements.commentArea.value;
       postReservationsData({
         item_id: movieID,
         username: user,
-        date_start: StartDate,
-        date_end: EndDate,
+        comment: commentArea,
       }).then(() => {
         reservationsDisplay(movieID);
         reservationCounter(movieID);
@@ -136,4 +132,4 @@ const Reservationspopup = (movieID) => {
   });
 };
 
-export { Reservationspopup, finalCounter };
+export { Commentspopup, CommentCounter };
