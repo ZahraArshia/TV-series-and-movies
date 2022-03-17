@@ -1,7 +1,7 @@
-import './style.css';
-import { getMovies, countMovies } from './modules/get-api.js';
-import { getLikes, addLike } from './modules/interact.js';
-import { Reservationspopup } from './modules/reservation.js';
+import "./style.css";
+import { getMovies, countMovies } from "./modules/get-api.js";
+import { getLikes, addLike } from "./modules/interact.js";
+import { Reservationspopup } from "./modules/reservation.js";
 
 const displayMovie = (movie, like = {}) => `<div class="card">
                     <div class="card-div">
@@ -9,16 +9,17 @@ const displayMovie = (movie, like = {}) => `<div class="card">
                     </div>
                     <div class="description">
                         <h3 class="title"> ${movie.name} </h3>
-                        <p class="likes"> <i class="fas fa-heart like" data-id="${movie.id}"> <span class="num"> ${like} </span> </i>  likes </p>
+                        <p class="likes"> <i class="fas fa-heart like" data-id="${movie.id}">
+                         <span class="num"> ${like} </span> </i>  likes </p>
                     </div>
-                    <button class="btn" data-id="${movie.id}"> comments </button>
-                    <button class="reservation btn" data-id="${movie.id}"> reservations </button>
+                    <button class="btnComment" data-id="${movie.id} > comments </button>
+                    <button class="btn" data-id="${movie.id}"> reservations </button>
    </div>`;
 
-const listMovie = document.querySelector('.movies');
+const listMovie = document.querySelector(".movies");
 const moviesComponent = async () => {
   const likes = await getLikes();
-  listMovie.innerHTML = '';
+  listMovie.innerHTML = "";
   const list = await getMovies();
   countMovies(list);
   list.forEach((item) => {
@@ -32,25 +33,36 @@ const moviesComponent = async () => {
     listMovie.innerHTML += displayMovie(item, count);
   });
 
-  const like = document.querySelectorAll('.like');
+  const like = document.querySelectorAll(".like");
   like.forEach((item) => {
-    item.addEventListener('click', () => {
-      const movieId = item.getAttribute('data-id');
-      if (item.style.color !== 'pink') {
-        item.style.color = 'pink';
-        item.firstElementChild.innerHTML = Number(item.firstElementChild.innerHTML) + 1;
+    item.addEventListener("click", () => {
+      const movieId = item.getAttribute("data-id");
+      if (item.style.color !== "pink") {
+        item.style.color = "pink";
+        item.firstElementChild.innerHTML =
+          Number(item.firstElementChild.innerHTML) + 1;
         addLike(movieId);
       }
     });
   });
 
-  const reservationButtons = document.querySelectorAll('.reservation');
+  const reservationButtons = document.querySelectorAll(".reservation");
   reservationButtons.forEach((item) => {
-    item.addEventListener('click', () => {
-      const movieId = item.getAttribute('data-id');
+    item.addEventListener("click", () => {
+      const movieId = item.getAttribute("data-id");
       Reservationspopup(movieId);
     });
   });
 };
 
 moviesComponent();
+
+//  comments section
+/* 
+const btnComments = document.querySelector(".btnComment");
+
+btnComments.forEach((btn) =>
+  btn.addEventListener("click", () => {
+    console.log("you clicked");
+  })
+); */
