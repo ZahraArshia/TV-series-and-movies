@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Courier+Prime:wght@400;700&family=Lato:wght@100;300;400;900&family=Open+Sans:wght@300;400;800&family=Source+Code+Pro:wght@300;400;600;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -227,6 +228,18 @@ footer {
   color: rgb(167, 9, 9);
 }
 
+.reservation-info button {
+  width: 100%;
+  padding: 10px;
+  background-color: transparent;
+  border: 2px solid rgb(167, 9, 9);
+  color: rgb(167, 9, 9);
+  font-family: 'Open sans', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+}
+
 .reservation-skeleton button:hover {
   background-color: white;
   border: none;
@@ -285,18 +298,6 @@ footer {
 
 .reservation-info textarea::placeholder {
   color: white;
-}
-
-.reservation-info button {
-  width: 100%;
-  padding: 10px;
-  background-color: transparent;
-  border: 2px solid rgb(167, 9, 9);
-  color: rgb(167, 9, 9);
-  font-family: 'Open sans', sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  cursor: pointer;
 }
 
 .reservation-info button:hover {
