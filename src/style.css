@@ -154,7 +154,7 @@ h3 {
   border: none;
   color: rgb(242, 246, 198);
   transition-duration: 1s;
-  /* cursor: pointer; */
+  cursor: pointer;
   margin-top: 10px;
   font-size: 14px;
   font-family: "open sans", sans-serif;
@@ -171,7 +171,7 @@ h3 {
   border: none;
   color: rgb(242, 246, 198);
   transition-duration: 1s;
-  /*  cursor: pointer; */
+   cursor: pointer;
   margin-top: 10px;
   font-size: 14px;
   font-family: "open sans", sans-serif;
