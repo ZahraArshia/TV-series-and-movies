@@ -28,9 +28,9 @@ JavaScript capstone project - API-based webapp
 
 [live demo](https://tv-maize-zahra-pascal-samiullah-jscapstone.netlify.app/)
 
-## Project Documentation
+## Video Link
 
-[Documentation](https://drive.google.com/file/d/11Ts_QPmm9nwgFE4hdCsyrHx01WBlB2uq/view?usp=sharing)
+coming soon
 
 ## Getting Started
 
