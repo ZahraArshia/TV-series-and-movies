@@ -1,9 +1,11 @@
 /* eslint-disable no-confusing-arrow */
+
 const fetch = (...args) =>
   import("node-fetch").then(({ default: fetch }) => fetch(...args));
 const movieURL = "https://api.tvmaze.com/shows";
-const reservationsURL =
+const commentsURL =
   "https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/3x4brqQTuutEhv5burqz/comments/";
+
 // id: 3x4brqQTuutEhv5burqz
 const popUpBox = document.getElementById("popUpBox");
 
@@ -24,7 +26,7 @@ const postCommentData = async (raw) => {
 };
 
 const getCommentsData = async (movieId) => {
-  const response = await fetch(`${reservationsURL}?item_id=${movieId}`).catch(
+  const response = await fetch(`${commentsURL}?item_id=${movieId}`).catch(
     (err) => err
   );
   return response.json();
@@ -32,6 +34,7 @@ const getCommentsData = async (movieId) => {
 
 const commentsDisplay = (movieId) => {
   popUpBox.querySelector(".reservationTable").innerHTML = "";
+
   getCommentsData(movieId).then((data) => {
     if (!data.error) {
       data.forEach((comment) => {
@@ -100,8 +103,10 @@ const Commentspopup = (movieID) => {
     </div>
     `;
     commentsCount(movieID);
+
     popUpBox.style.display = "flex";
     document.body.style.overflow = "hidden";
+
     document
       .querySelector(".closeReservation")
       .addEventListener("click", () => {
@@ -114,6 +119,7 @@ const Commentspopup = (movieID) => {
     const moreDetailsButton = popUpBox.querySelector(".moreDetailsButton");
     moreDetailsButton.addEventListener("click", () => {
       moreDetailsButton.style.display = "none";
+
       moreDetails.innerHTML = ` <li>Premiered: ${result.premiered}</li>
       <li>Ended: ${result.ended}</li>
       <li>Language: ${result.language}</li>

@@ -8,6 +8,14 @@ JavaScript capstone project - API-based webapp
 
 ![TV MAZE](./src/images/tv.png)
 
+### Comment poppup view
+
+![Comments](./src/images/comment.png)
+
+### Reservations poppup view
+
+![Reservations](./src/images/reservation.png)
+
 ## Built With
 
 - HTML
@@ -20,9 +28,9 @@ JavaScript capstone project - API-based webapp
 
 coming soon
 
-## Video Link
+## Project Documentation
 
-coming soon
+[Documentation](https://drive.google.com/file/d/11Ts_QPmm9nwgFE4hdCsyrHx01WBlB2uq/view?usp=sharing)
 
 ## Getting Started
 
@@ -43,23 +51,22 @@ Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](https://github.com/ZahraArshia/TV-series-and-movies/issues)
 
-## Author
-
-👤 **Pascal Kabika**
-
-- GitHub: [Link](https://github.com/KABIKA681)
-- Twitter: [Twitter]()
-
-## Author
-
-👤 **Samiullah Bahadur**
-
-- GitHub: [Link](https://github.com/samiullahbahadur)
-- Twitter: [Twitter]()
+## Authors
 
 👤 **Zahra Arshia**
 
 - GitHub: [Link](https://github.com/ZahraArshia)
+- Twitter: [Twitter]()
+
+👤 **Pascal Kabika**
+
+- GitHub: [Link](https://github.com/KABIKA681)
+- LinkedIn: (https://www.linkedin.com/in/pascal-kabika-443061220/)Twitter: [Twitter]()
+
+👤 **Samiullah Bahadur**
+
+- GitHub: [Link](https://github.com/samiullahbahadur)
+  LinkedIn: (https://www.linkedin.com/in/samiullah-bahadur-a1b053149//)
 - Twitter: [Twitter]()
 
 ## Acknowledgements
