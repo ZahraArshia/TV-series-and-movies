@@ -1,5 +1,5 @@
 export const getMovies = async () => {
-  const response = await fetch("https://api.tvmaze.com/shows");
+  const response = await fetch('https://api.tvmaze.com/shows');
   return response.json();
 };
 
@@ -10,6 +10,6 @@ export const getMovieById = async (id) => {
 
 export const countMovies = (movies) => {
   if (movies.length) {
-    document.querySelector(".count-movies").innerHTML = `${movies.length}`;
+    document.querySelector('.count-movies').innerHTML = `${movies.length}`;
   }
 };

@@ -1,57 +1,50 @@
 /* eslint-disable no-confusing-arrow */
-
-const fetch = (...args) =>
-  import("node-fetch").then(({ default: fetch }) => fetch(...args));
-const movieURL = "https://api.tvmaze.com/shows";
-const commentsURL =
-  "https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/3x4brqQTuutEhv5burqz/comments/";
-
+const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
+const movieURL = 'https://api.tvmaze.com/shows';
+const commentsURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/3x4brqQTuutEhv5burqz/comments/';
 // id: 3x4brqQTuutEhv5burqz
-const popUpBox = document.getElementById("popUpBox");
+const popUpBox = document.getElementById('popUpBox');
 
 const postCommentData = async (raw) => {
-  const response = await fetch(reservationsURL, {
-    method: "POST",
+  const response = await fetch(commentsURL, {
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json; charset= UTF-8",
+      'Content-Type': 'application/json; charset= UTF-8',
     },
     body: JSON.stringify(raw),
   })
     .then((res) => res.text())
-    .then((data) =>
-      data.error ? { error: true, info: data } : { error: false, info: data }
-    )
+    .then((data) => data.error ? { error: true, info: data } : { error: false, info: data })
     .catch((error) => ({ error: true, info: error }));
   return response;
 };
 
 const getCommentsData = async (movieId) => {
   const response = await fetch(`${commentsURL}?item_id=${movieId}`).catch(
-    (err) => err
+    (err) => err,
   );
   return response.json();
 };
 
 const commentsDisplay = (movieId) => {
-  popUpBox.querySelector(".reservationTable").innerHTML = "";
-
+  popUpBox.querySelector('.reservationTable').innerHTML = '';
   getCommentsData(movieId).then((data) => {
     if (!data.error) {
       data.forEach((comment) => {
         popUpBox.querySelector(
-          ".reservationTable"
+          '.reservationTable',
         ).innerHTML += `<p>${comment.creation_date} | ${comment.username} : ${comment.comment}</p>`;
       });
     } else {
-      popUpBox.querySelector(".reservationTable").innerHTML = "no comment yet!";
+      popUpBox.querySelector('.reservationTable').innerHTML = 'no comment yet!';
     }
   });
 };
 
 const getMovieData = async (movieID) => {
   const response = await fetch(`${movieURL}/${movieID}`, {
-    method: "GET",
-    redirect: "follow",
+    method: 'GET',
+    redirect: 'follow',
   })
     .then((response) => response.json())
     .then((result) => result)
@@ -68,12 +61,11 @@ const counter = async (movieID) => {
 
 const commentsCount = (movieID) => {
   counter(movieID).then((count) => {
-    popUpBox.querySelector(".reservationCounter").innerHTML = count;
+    popUpBox.querySelector('.reservationCounter').innerHTML = count;
   });
 };
 
-const CommentCounter = (data) =>
-  typeof data === "object" ? data.length : "invalid";
+const CommentCounter = (data) => typeof data === 'object' ? data.length : 'invalid';
 
 const Commentspopup = (movieID) => {
   getMovieData(movieID).then((result) => {
@@ -103,30 +95,27 @@ const Commentspopup = (movieID) => {
     </div>
     `;
     commentsCount(movieID);
-
-    popUpBox.style.display = "flex";
-    document.body.style.overflow = "hidden";
-
+    popUpBox.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
     document
-      .querySelector(".closeReservation")
-      .addEventListener("click", () => {
-        popUpBox.style.display = "none";
-        document.body.style.overflow = "visible";
-        popUpBox.innerHTML = "";
+      .querySelector('.closeReservation')
+      .addEventListener('click', () => {
+        popUpBox.style.display = 'none';
+        document.body.style.overflow = 'visible';
+        popUpBox.innerHTML = '';
       });
     commentsDisplay(movieID);
-    const moreDetails = popUpBox.querySelector("#moreDetails");
-    const moreDetailsButton = popUpBox.querySelector(".moreDetailsButton");
-    moreDetailsButton.addEventListener("click", () => {
-      moreDetailsButton.style.display = "none";
-
+    const moreDetails = popUpBox.querySelector('#moreDetails');
+    const moreDetailsButton = popUpBox.querySelector('.moreDetailsButton');
+    moreDetailsButton.addEventListener('click', () => {
+      moreDetailsButton.style.display = 'none';
       moreDetails.innerHTML = ` <li>Premiered: ${result.premiered}</li>
       <li>Ended: ${result.ended}</li>
       <li>Language: ${result.language}</li>
       <li>Type: ${result.type}</li>`;
     });
-    const form = popUpBox.querySelector(".reservationForm");
-    form.addEventListener("submit", (event) => {
+    const form = popUpBox.querySelector('.reservationForm');
+    form.addEventListener('submit', (event) => {
       event.preventDefault();
       const user = form.elements.username.value;
       const commentArea = form.elements.commentArea.value;
