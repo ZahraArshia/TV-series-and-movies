@@ -2,7 +2,7 @@ import "./style.css";
 import { getMovies, countMovies } from "./modules/get-api.js";
 import { getLikes, addLike } from "./modules/interact.js";
 import { Reservationspopup } from "./modules/reservation.js";
-import * as Commentspopup  from "./modules/comments/comment.js";
+import { Commentspopup } from "./modules/comment.js";
 
 const displayMovie = (movie, like = {}) => `<div class="card">
                     <div class="card-div">
@@ -55,6 +55,7 @@ const moviesComponent = async () => {
   });
 
   const CommentButtons = document.querySelectorAll(".commentBtn");
+
   CommentButtons.forEach((item) => {
     item.addEventListener("click", () => {
       const movieId = item.getAttribute("data-id");

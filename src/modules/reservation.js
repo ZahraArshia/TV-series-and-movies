@@ -1,9 +1,7 @@
 /* eslint-disable no-confusing-arrow */
-const fetch = (...args) =>
-  import('node-fetch').then(({ default: fetch }) => fetch(...args));
+const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 const movieURL = 'https://api.tvmaze.com/shows';
-const reservationsURL =
-  'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/3x4brqQTuutEhv5burqz/reservations/';
+const reservationsURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/3x4brqQTuutEhv5burqz/reservations/';
 // id: 3x4brqQTuutEhv5burqz
 const popUpBox = document.getElementById('popUpBox');
 
@@ -16,16 +14,14 @@ const postReservationsData = async (raw) => {
     body: JSON.stringify(raw),
   })
     .then((res) => res.text())
-    .then((data) =>
-      data.error ? { error: true, info: data } : { error: false, info: data }
-    )
+    .then((data) => data.error ? { error: true, info: data } : { error: false, info: data })
     .catch((error) => ({ error: true, info: error }));
   return response;
 };
 
 const getReservationsData = async (movieId) => {
   const response = await fetch(`${reservationsURL}?item_id=${movieId}`).catch(
-    (err) => err
+    (err) => err,
   );
   return response.json();
 };
@@ -34,14 +30,13 @@ const reservationsDisplay = (movieId) => {
   popUpBox.querySelector('.reservationTable').innerHTML = '';
   getReservationsData(movieId).then((data) => {
     if (!data.error) {
-      data.forEach((comment) => {
+      data.forEach((reserve) => {
         popUpBox.querySelector(
-          '.reservationTable'
-        ).innerHTML += `<li class="reservation-li"> ${comment.date_start} - ${comment.date_end} by ${comment.username}</li>`;
+          '.reservationTable',
+        ).innerHTML += `<p> ${reserve.date_start} - ${reserve.date_end} by ${reserve.username}</p>`;
       });
     } else {
-      popUpBox.querySelector('.reservationTable').innerHTML =
-        'no reservation yet!';
+      popUpBox.querySelector('.reservationTable').innerHTML = 'no reservation yet!';
     }
   });
 };
@@ -70,8 +65,7 @@ const reservationCounter = (movieID) => {
   });
 };
 
-const finalCounter = (data) =>
-  typeof data === 'object' ? data.length : 'invalid';
+const finalCounter = (data) => typeof data === 'object' ? data.length : 'invalid';
 
 const Reservationspopup = (movieID) => {
   getMovieData(movieID).then((result) => {
@@ -82,19 +76,13 @@ const Reservationspopup = (movieID) => {
     <h2 class="popupTitle">${result.name}</h2>
     <img src="${result.image.medium}" class="reservationImg">
     <div >
-    <ul>
-      <li>Premiered: ${result.premiered}</li>
-      <li>Ended: ${result.ended}</li>
-      <li>Language: ${result.language}</li>
-      <li>Type: ${result.type}</li>
-    </ul>
+    <ul id="moreDetails"></ul>
     </div>
-    <button class="btn" type="submit">More details</button>
+    <button class="moreDetailsButton btn" type="submit">More details</button>
     </div>
-   
     <div class="reservation-info">
-    <h3 class="reservationsTitle"> Reservations (<span class="reservationCounter">0</span>)</h3>
-    <ul class="reservationTable"></ul>
+    <h3 class="reservationsTitle">Reservations(<span class="reservationCounter">0</span>)</h3>
+    <div class="reservationTable"></div>
     <form class="reservationForm">
       <h3>Add a reservation</h3>
       <input id="username" type="text" name="username" placeholder="Your name" required>
@@ -110,13 +98,24 @@ const Reservationspopup = (movieID) => {
     `;
     reservationCounter(movieID);
     popUpBox.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
     document
       .querySelector('.closeReservation')
       .addEventListener('click', () => {
         popUpBox.style.display = 'none';
+        document.body.style.overflow = 'visible';
         popUpBox.innerHTML = '';
       });
     reservationsDisplay(movieID);
+    const moreDetails = popUpBox.querySelector('#moreDetails');
+    const moreDetailsButton = popUpBox.querySelector('.moreDetailsButton');
+    moreDetailsButton.addEventListener('click', () => {
+      moreDetailsButton.style.display = 'none';
+      moreDetails.innerHTML = ` <li>Premiered: ${result.premiered}</li>
+      <li>Ended: ${result.ended}</li>
+      <li>Language: ${result.language}</li>
+      <li>Type: ${result.type}</li>`;
+    });
     const form = popUpBox.querySelector('.reservationForm');
     form.addEventListener('submit', (event) => {
       event.preventDefault();
