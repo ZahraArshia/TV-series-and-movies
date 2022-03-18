@@ -1,11 +1,11 @@
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 const movieURL = 'https://api.tvmaze.com/shows';
-const reservationsURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/3x4brqQTuutEhv5burqz/comments/';
+const commentsURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/3x4brqQTuutEhv5burqz/comments/';
 // id: 3x4brqQTuutEhv5burqz
 const popUpBox = document.getElementById('popUpBox');
 
-const postReservationsData = async (raw) => {
-  const response = await fetch(reservationsURL, {
+const postCommentData = async (raw) => {
+  const response = await fetch(commentsURL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json; charset= UTF-8',
@@ -18,16 +18,16 @@ const postReservationsData = async (raw) => {
   return response;
 };
 
-const getReservationsData = async (movieId) => {
-  const response = await fetch(`${reservationsURL}?item_id=${movieId}`).catch(
+const getCommentsData = async (movieId) => {
+  const response = await fetch(`${commentsURL}?item_id=${movieId}`).catch(
     (err) => err,
   );
   return response.json();
 };
 
-const reservationsDisplay = (movieId) => {
+const commentsDisplay = (movieId) => {
   popUpBox.querySelector('.reservationTable').innerHTML = '';
-  getReservationsData(movieId).then((data) => {
+  getCommentsData(movieId).then((data) => {
     if (!data.error) {
       data.forEach((comment) => {
         popUpBox.querySelector(
@@ -52,13 +52,13 @@ const getMovieData = async (movieID) => {
 };
 
 const counter = async (movieID) => {
-  const response = await getReservationsData(movieID)
+  const response = await getCommentsData(movieID)
     .then((result) => (!result.error ? result.length : 0))
     .catch(() => 0);
   return response;
 };
 
-const reservationCounter = (movieID) => {
+const commentsCount = (movieID) => {
   counter(movieID).then((count) => {
     popUpBox.querySelector('.reservationCounter').innerHTML = count;
   });
@@ -86,14 +86,14 @@ const Commentspopup = (movieID) => {
       <h3>Add a comment</h3>
       <input id="username" type="text" name="username" placeholder="Your name" required>
       <br>
-      <textarea id="commentArea" placeholder="Your insights" name="commentArea" required minlength="1"></textarea>
+      <textarea id="commentArea" placeholder="Your comment" name="commentArea" required minlength="1"></textarea>
       <br>
       <button class="reservationSubmit" type="submit">Submit</button>
     </form>
     </div>
     </div>
     `;
-    reservationCounter(movieID);
+    commentsCount(movieID);
     popUpBox.style.display = 'flex';
     document.body.style.overflow = 'hidden';
     document
@@ -103,7 +103,7 @@ const Commentspopup = (movieID) => {
         document.body.style.overflow = 'visible';
         popUpBox.innerHTML = '';
       });
-    reservationsDisplay(movieID);
+    commentsDisplay(movieID);
     const moreDetails = popUpBox.querySelector('#moreDetails');
     const moreDetailsButton = popUpBox.querySelector('.moreDetailsButton');
     moreDetailsButton.addEventListener('click', () => {
@@ -118,13 +118,13 @@ const Commentspopup = (movieID) => {
       event.preventDefault();
       const user = form.elements.username.value;
       const commentArea = form.elements.commentArea.value;
-      postReservationsData({
+      postCommentData({
         item_id: movieID,
         username: user,
         comment: commentArea,
       }).then(() => {
-        reservationsDisplay(movieID);
-        reservationCounter(movieID);
+        commentsDisplay(movieID);
+        commentsCount(movieID);
         form.reset();
       });
     });
