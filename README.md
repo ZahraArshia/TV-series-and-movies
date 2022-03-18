@@ -30,7 +30,7 @@ JavaScript capstone project - API-based webapp
 
 ## Video Link
 
-coming soon
+[introduction video](https://drive.google.com/file/d/11Ts_QPmm9nwgFE4hdCsyrHx01WBlB2uq/view?usp=sharing)
 
 ## Getting Started
 
