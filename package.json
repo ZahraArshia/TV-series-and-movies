@@ -8,7 +8,9 @@
     "test": "jest",
     "watch": "webpack --watch",
     "start": "webpack serve --open",
-    "build": "webpack"
+    "build": "webpack",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -20,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/ZahraArshia/TV-series-and-movies/issues"
   },
-  "homepage": "https://github.com/ZahraArshia/TV-series-and-movies#readme",
+  "homepage": "https://github.com/ZahraArshia/TV-series-and-movies",
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.16.8",
     "babel-eslint": "^10.1.0",
@@ -28,6 +30,7 @@
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.25.4",
+    "gh-pages": "^3.2.3",
     "hint": "^6.1.10",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^27.5.1",
