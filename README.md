@@ -28,9 +28,9 @@ JavaScript capstone project - API-based webapp
 
 coming soon
 
-## Video Link
+## Project Documentation
 
-coming soon
+[Documentation](https://drive.google.com/file/d/11Ts_QPmm9nwgFE4hdCsyrHx01WBlB2uq/view?usp=sharing)
 
 ## Getting Started
 
