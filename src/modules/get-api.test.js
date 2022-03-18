@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-import { countMovies } from './get-api';
+import { countMovies } from './get-api.js';
 
 test('displays number of items on home-page', () => {
   document.body.innerHTML = '<h1 class="count-movies"></h1>';
