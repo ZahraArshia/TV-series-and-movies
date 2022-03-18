@@ -61,7 +61,7 @@ Feel free to check the [issues page](https://github.com/ZahraArshia/TV-series-an
 👤 **Pascal Kabika**
 
 - GitHub: [Link](https://github.com/KABIKA681)
-- LinkedIn: (https://www.linkedin.com/in/pascal-kabika-443061220/)Twitter: [Twitter]()
+- LinkedIn: (https://www.linkedin.com/in/pascal-kabika-443061220/)
 
 👤 **Samiullah Bahadur**
 
