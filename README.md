@@ -26,24 +26,35 @@ JavaScript capstone project - API-based webapp
 
 ## Live Demo
 
+[live demo](https://tv-maize-zahra-pascal-samiullah-jscapstone.netlify.app/)
+
+## Video Link
+
 coming soon
-
-## Project Documentation
-
-[Documentation](https://drive.google.com/file/d/11Ts_QPmm9nwgFE4hdCsyrHx01WBlB2uq/view?usp=sharing)
 
 ## Getting Started
 
 Running the app localy:
+```
+git clone https://github.com/ZahraArshia/TV-series-and-movies.git 
+```
 
 ### Prerequisites
 
-clone repo using https: `https://github.com/ZahraArshia/TV-series-and-movies.git`
-clone repo using ssh key : `git@github.com:ZahraArshia/TV-series-and-movies.git`
+clone repo using ssh key :
+```
+git@github.com:ZahraArshia/TV-series-and-movies.git
+```
 
 ### Install
 
 run `npm install` to install dependencies
+```
+npm install
+npm run build
+npm install --save-dev webpack-dev-server
+npm start   
+```
 
 ## Contribute
 
@@ -61,12 +72,17 @@ Feel free to check the [issues page](https://github.com/ZahraArshia/TV-series-an
 👤 **Pascal Kabika**
 
 - GitHub: [Link](https://github.com/KABIKA681)
-- LinkedIn: (https://www.linkedin.com/in/pascal-kabika-443061220/)Twitter: [Twitter]()
+- LinkedIn:[Link](https://www.linkedin.com/in/pascal-kabika-443061220/)
 
 👤 **Samiullah Bahadur**
 
 - GitHub: [Link](https://github.com/samiullahbahadur)
 - Twitter: [Twitter]()
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
 
 ## Acknowledgements
 
