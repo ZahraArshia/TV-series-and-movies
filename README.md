@@ -76,8 +76,8 @@ Feel free to check the [issues page](https://github.com/ZahraArshia/TV-series-an
 
 👤 **Samiullah Bahadur**
 
-- GitHub: [Link](https://github.com/samiullahbahadur)
-- Twitter: [Twitter]()
+- GitHub: [@samiullahbahadur](https://github.com/samiullahbahadur)
+- LinkedIn: [@samiullahbahadur](https://linkedin.com/in/samiullah-bahadur-a1b053149/)
 
 ## Show your support
 

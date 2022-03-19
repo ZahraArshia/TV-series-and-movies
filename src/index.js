@@ -54,6 +54,7 @@ const moviesComponent = async () => {
   });
 
   const CommentButtons = document.querySelectorAll('.commentBtn');
+
   CommentButtons.forEach((item) => {
     item.addEventListener('click', () => {
       const movieId = item.getAttribute('data-id');
