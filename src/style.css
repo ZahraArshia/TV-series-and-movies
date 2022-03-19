@@ -18,6 +18,14 @@ body {
   background-repeat: repeat;
 }
 
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(14, 10, 10);
+}
+
 .nav-logo {
   display: flex;
   width: 150px;
@@ -30,14 +38,12 @@ body {
 
 nav ul {
   display: flex;
-  flex-direction: column;
   justify-content: space-around;
   list-style-type: none;
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-image: url(./images/Avengers.jpeg);
   background-size: 100% 25rem;
   background-repeat: no-repeat;
   background-position: center;
@@ -46,8 +52,10 @@ nav ul {
 .main h1 {
   font-size: 32px;
   padding-top: 15px;
+
   color: rgb(158, 33, 33);
   font-family: "Bowlby One", cursive;
+
   text-align: center;
 }
 
@@ -67,7 +75,6 @@ nav ul li a {
   font-size: 2em;
   font-weight: 900;
   text-decoration: none;
-  letter-spacing: 0.4rem;
   box-shadow: 2px 2px 2px 0 rgb(0, 0, 0);
   cursor: pointer;
 }
@@ -75,7 +82,7 @@ nav ul li a {
 nav ul li a:hover {
   box-shadow: 2px 2px 2px 0 red;
   color: red;
-  letter-spacing: 1rem;
+  letter-spacing: 0.2rem;
 }
 
 .info {

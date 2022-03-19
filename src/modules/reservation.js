@@ -1,8 +1,6 @@
-/* eslint-disable no-confusing-arrow */
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 const movieURL = 'https://api.tvmaze.com/shows';
 const reservationsURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/3x4brqQTuutEhv5burqz/reservations/';
-// id: 3x4brqQTuutEhv5burqz
 const popUpBox = document.getElementById('popUpBox');
 
 const postReservationsData = async (raw) => {
@@ -14,7 +12,9 @@ const postReservationsData = async (raw) => {
     body: JSON.stringify(raw),
   })
     .then((res) => res.text())
-    .then((data) => data.error ? { error: true, info: data } : { error: false, info: data })
+    .then((data) => (data.error
+      ? { error: true, info: data }
+      : { error: false, info: data }))
     .catch((error) => ({ error: true, info: error }));
   return response;
 };
@@ -65,7 +65,7 @@ const reservationCounter = (movieID) => {
   });
 };
 
-const finalCounter = (data) => typeof data === 'object' ? data.length : 'invalid';
+const finalCounter = (data) => (typeof (data) === 'object' ? data.length : 'invalid');
 
 const Reservationspopup = (movieID) => {
   getMovieData(movieID).then((result) => {
